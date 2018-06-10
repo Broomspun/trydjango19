@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^posts/$', views.post_home, name="posts"),
     url(r'^$', views.post_list, name="index"),
+    path('posts/detail/', views.post_detail, name="detail"),
 ]

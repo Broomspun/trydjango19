@@ -20,9 +20,12 @@ def post_list(request):
 
 
 def post_detail(request):
-    instance = Post.objects.get(id=1)
+    # instance = get_object_or_404(Post, id=3)
+    instance = get_object_or_404(Post, title="What is Lorem Ipsum?")
+    # instance = get_object_or_404(Post, title__startswith="What")
     context = {
-        "title": "detail"
+        "title": "Detail",
+        "instance": instance
     }
 
-    return render(request, "index.html", context)
+    return render(request, "post_detail.html", context)
