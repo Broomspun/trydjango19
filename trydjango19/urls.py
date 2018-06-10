@@ -2,6 +2,7 @@
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
+    https://github.com/codingforentrepreneurs/Guides/blob/master/all/common_url_regex.md
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf import urls
+from django.conf.urls import url
+from posts import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^posts/$', views.post_home, name="posts"),
 ]
