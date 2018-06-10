@@ -1,0 +1,19 @@
+<html>
+<body>
+<h1>{{ title }} is working!</h1>
+<br/>
+
+
+{% for obj in object_list %}
+
+    {{ obj.id }}
+    {{ obj.title }}
+    {{ obj.content|truncatechars:30|linebreaks }}
+    {{ obj.timestamp|linebreaks }}
+    {{ obj.updated|linebreaks }}
+
+
+{% endfor %}
+
+</body>
+</html>

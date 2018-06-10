@@ -22,4 +22,5 @@ from posts import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^posts/$', views.post_home, name="posts"),
+    url(r'^$', views.post_list, name="index"),
 ]
