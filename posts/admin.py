@@ -11,7 +11,6 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ["content"]
     list_editable = ["title"]
 
-
     class Meta:
         model = Post
 
