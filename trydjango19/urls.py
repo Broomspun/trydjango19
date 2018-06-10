@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^posts/$', views.post_home, name="posts"),
     url(r'^$', views.post_list, name="index"),
-    path('posts/detail/', views.post_detail, name="detail"),
+    url(r'^posts/detail/(?P<id>\d+)/$', views.post_detail, name="detail"),
 ]
