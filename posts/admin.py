@@ -5,7 +5,7 @@ from .models import Post
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ["title", "timestamp", "updated"]
+    list_display = ["title", "slug", "timestamp", "updated"]
     list_display_links = ["updated"]
     list_filter = ["updated", "timestamp"]
     search_fields = ["content"]

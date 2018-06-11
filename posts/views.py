@@ -27,9 +27,9 @@ def post_list(request):
     return render(request, "index.html", context)
 
 
-def post_detail(request, id): #retrive
+def post_detail(request, slug): #retrive
     # instance = get_object_or_404(Post, id=3)
-    instance = get_object_or_404(Post, id=id)
+    instance = get_object_or_404(Post, slug=slug)
     # instance = get_object_or_404(Post, title__startswith="What")
     context = {
         "title": "Detail",

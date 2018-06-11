@@ -48,7 +48,8 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 posts/migrations
-assets
+assets/
+media/
 
 # Translations
 *.mo
