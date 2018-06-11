@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
@@ -11,7 +12,12 @@ def post_home(request):
 
 
 def post_list(request):
-    queryset = Post.objects.all().order_by("timestamp")
+    posts = Post.objects.all()
+
+    paginator = Paginator(posts, 3)  # Show 3 posts per page
+
+    page = request.GET.get('page')
+    queryset = paginator.get_page(page)
 
     context = {
         "object_list": queryset,

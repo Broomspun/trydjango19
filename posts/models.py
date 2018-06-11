@@ -9,6 +9,9 @@ class Post(models.Model):
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 
+    class Meta:
+        ordering = ["-timestamp"]
+
     def __unicode__(self):
         return self.title
 
@@ -18,5 +21,3 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={"id": self.id})
         # return "/posts/%s/" %(self.id)
-
-
