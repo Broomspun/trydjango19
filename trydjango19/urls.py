@@ -24,4 +24,5 @@ urlpatterns = [
     # url(r'^posts/$', views.post_home, name="posts"),
     url(r'^$', views.post_list, name="index"),
     url(r'^posts/(?P<id>\d+)/$', views.post_detail, name="detail"),
+    url(r'^posts/create/$', views.post_create, name="create"),
 ]
