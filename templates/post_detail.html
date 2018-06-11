@@ -1,24 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Post Detail</title>
-</head>
-<body>
-{% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
+{% extends 'base.html' %}
 
-<h1>{{ title }}</h1>
-{{ instance.id }}.
-{{  instance.title|capfirst }}
-{{ instance.content|linebreaks }}
-{{ instance.timestamp|linebreaks }}
-{{ instance.updated|linebreaks }}
+{% block head_title %}
+    {{ instance.title }} | {{ block.super }}
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1>{{ instance.title }}<small> {{ instance.timestamp }}</small></h1>
+        {{ instance.content|linebreaks }}
+    </div>
+
+{% endblock %}
+

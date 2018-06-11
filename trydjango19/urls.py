@@ -21,8 +21,8 @@ from posts import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # url(r'^posts/$', views.post_home, name="posts"),
     url(r'^$', views.post_list, name="index"),
+    url(r'^posts/$', views.post_list, name="posts"),
     url(r'^posts/(?P<id>\d+)/$', views.post_detail, name="detail"),
     url(r'^posts/(?P<id>\d+)/edit/$', views.post_update, name="update"),
     url(r'^posts/(?P<id>\d+)/delete/$', views.post_delete, name="delete"),

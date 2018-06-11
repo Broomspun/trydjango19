@@ -1,20 +1,19 @@
-<html>
-<body>
-<h1>{{ title }} is working!</h1>
-<br/>
+{% extends 'base.html' %}
 
+{% block content %}
+    <div class="col-sm-8 col-sm-offset-2">
+        <h1>{{ title }} is working!</h1>
+        {% for obj in object_list %}
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="thumbnail">
+                        <h3> <a href="{{ obj.get_absolute_url }}"> {{ obj.title }}</a><small>{{ obj.timestamp|timesince }}</small></h3>
+                        <p>{{ obj.content|linebreaks|truncatechars:120|linebreaks }}</p>
+                        <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p>
+                    </div>
+                </div>
+            </div>
 
-{% for obj in object_list %}
- /posts/id/
-    {% url "detail" id=obj.id %}
-    <a href="{{ obj.get_absolute_url }}"> {{ obj.title }}</a>
-    {{ obj.content|truncatechars:30|linebreaks }}
-    {{ obj.timestamp|linebreaks }}
-    {{ obj.updated|linebreaks }}
-    {{ obj.id|linebreaks }}
-
-
-{% endfor %}
-
-</body>
-</html>
+        {% endfor %}
+    </div>
+{% endblock %}
