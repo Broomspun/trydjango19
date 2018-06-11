@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 # Create your views here.
@@ -70,3 +70,10 @@ def post_update(request, id=None):
     }
 
     return render(request, "post_update.html", context)
+
+
+def post_delete(request, id=None):
+    instance = get_object_or_404(Post, id=id)
+    instance.delete()
+    messages.success(request, "Successfully Deleted")
+    return redirect("index")
