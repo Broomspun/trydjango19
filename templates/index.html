@@ -5,12 +5,13 @@
 
 
 {% for obj in object_list %}
-
-    {{ obj.id }}
-    {{ obj.title }}
+ /posts/id/
+    {% url "detail" id=obj.id %}
+    <a href="{{ obj.get_absolute_url }}"> {{ obj.title }}</a>
     {{ obj.content|truncatechars:30|linebreaks }}
     {{ obj.timestamp|linebreaks }}
     {{ obj.updated|linebreaks }}
+    {{ obj.id|linebreaks }}
 
 
 {% endfor %}
