@@ -5,6 +5,7 @@ from django.contrib import messages
 # Create your views here.
 from .models import Post
 from .forms import PostForm
+from django.utils import timezone
 
 
 def post_home(request):
@@ -12,7 +13,7 @@ def post_home(request):
 
 
 def post_list(request):
-    posts = Post.objects.all()
+    posts = Post.objects.filter(draft=False).filter(publish__lte=timezone.now())
 
     paginator = Paginator(posts, 3)  # Show 3 posts per page
 
